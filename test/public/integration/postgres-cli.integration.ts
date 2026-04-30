@@ -1125,7 +1125,8 @@ const db = Pg.schema("__SCHEMA__")
 
 export const users = db.table("users", {
   id: C.int(),
-  email: C.text()
+  email: C.text(),
+  status: C.text()
 })
 `)
   try {
@@ -1140,7 +1141,8 @@ export const users = db.table("users", {
       alter table "${schemaName}"."users"
       add constraint "users_pkey" primary key ("id") deferrable initially deferred,
       add constraint "users_email_key" unique ("email") deferrable initially deferred,
-      add constraint "users_email_check" check ("email" <> 'blocked') no inherit;
+      add constraint "users_email_check" check ("email" <> 'blocked') no inherit,
+      add constraint "users_status_check" check ("status" in ('active', 'blocked'));
     `)
 
     const pullDryRun = await runCli("pull", "--config", config, "--dry-run")
@@ -1158,6 +1160,8 @@ export const users = db.table("users", {
     expect(pulledSchema).toContain(`users_email_key`)
     expect(pulledSchema).toContain(`users_email_check`)
     expect(pulledSchema).toContain(`noInherit: true`)
+    expect(pulledSchema).toContain(`users_status_check`)
+    expect(pulledSchema).toContain(`Pg.Query.in(Pg.Query.column("status", Pg.Query.type.text()`)
 
     await assertIdempotentPullPush(config)
   } finally {
