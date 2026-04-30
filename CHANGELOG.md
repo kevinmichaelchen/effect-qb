@@ -13,6 +13,7 @@ All notable changes to this project are documented here.
 ### Notes
 
 - The v4 line is prerelease-only and is not compatible with Effect 3.
+- This branch now tracks the Effect v4 beta.59 package line.
 
 ## 0.13.0 - 2026-03-23
 

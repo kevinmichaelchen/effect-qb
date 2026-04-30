@@ -34,9 +34,9 @@
     "prepack": "bun run build"
   },
   "dependencies": {
-    "@effect/platform-bun": "4.0.0-beta.40",
-    "@effect/sql-pg": "4.0.0-beta.40",
-    "effect": "4.0.0-beta.40",
+    "@effect/platform-bun": "4.0.0-beta.59",
+    "@effect/sql-pg": "4.0.0-beta.59",
+    "effect": "4.0.0-beta.59",
     "effect-qb": "workspace:*",
     "typescript": "^6.0.2"
   }

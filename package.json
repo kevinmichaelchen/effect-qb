@@ -19,12 +19,12 @@
     "test:integration": "bun scripts/test-integration.ts"
   },
   "devDependencies": {
-    "@effect/platform-bun": "4.0.0-beta.40",
-    "@effect/sql-mysql2": "4.0.0-beta.40",
-    "@effect/sql-pg": "4.0.0-beta.40",
+    "@effect/platform-bun": "4.0.0-beta.59",
+    "@effect/sql-mysql2": "4.0.0-beta.59",
+    "@effect/sql-pg": "4.0.0-beta.59",
     "@types/bun": "latest",
     "@typescript/native-preview": "latest",
-    "effect": "4.0.0-beta.40",
+    "effect": "4.0.0-beta.59",
     "effect-db": "workspace:*",
     "effect-qb": "workspace:*",
     "pgsql-ast-parser": "^12.0.2",
