@@ -37,7 +37,7 @@
     "@effect/platform-bun": "4.0.0-beta.59",
     "@effect/sql-pg": "4.0.0-beta.59",
     "effect": "4.0.0-beta.59",
-    "effect-qb": "workspace:*",
+    "effect-qb": "git+https://github.com/kevinmichaelchen/effect-qb.git#kevinmichaelchen/effect-v4-beta59&path:packages/querybuilder",
     "typescript": "^6.0.2"
   }
 }
