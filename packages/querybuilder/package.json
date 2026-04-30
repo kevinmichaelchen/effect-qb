@@ -31,8 +31,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "bun scripts/build.ts",
-    "prepack": "bun run build"
+    "build": "bun scripts/build.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
