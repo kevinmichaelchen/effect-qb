@@ -12,6 +12,7 @@ export interface EffectDbConfig {
   readonly dialect: "postgres"
   readonly db?: {
     readonly url?: string
+    readonly urlEnv?: string
   }
   readonly source?: SchemaSourceConfig
   readonly filter?: FilterConfig
@@ -25,11 +26,11 @@ export interface EffectDbConfig {
 }
 
 export interface LoadedPostgresConfig {
-  readonly config: EffectDbConfig
+  readonly config: Required<EffectDbConfig>
   readonly cwd: string
   readonly path?: string
 }
 
-export declare const defineConfig: <A extends EffectDbConfig>(config: A) => A
-export declare const loadPostgresConfig: any
-export declare const resolveDatabaseUrl: any
+export declare const defineConfig: <Config extends EffectDbConfig>(config: Config) => Config
+export declare const loadPostgresConfig: (cwd: string, explicitPath?: string) => Promise<LoadedPostgresConfig>
+export declare const resolveDatabaseUrl: (config: EffectDbConfig, overrideUrl?: string) => string

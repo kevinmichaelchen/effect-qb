@@ -1,20 +1,40 @@
-export declare const fromDiscoveredValues: any
-export declare const isEnumDefinition: any
-export declare const isTableDefinition: any
-export declare const tableKey: any
-export declare const enumKey: any
-export declare const toEnumModel: any
-export declare const toTableModel: any
-export declare const EnumTypeId: any
-export declare const normalizeDdlExpressionSql: any
-export declare const renderDdlExpressionSql: any
-export type ColumnModel = any
-export type EnumModel = any
-export type SchemaModel = any
-export type TableModel = any
-export type AnyDefinition = any
-export type EnumDefinition = any
-export type DdlExpressionLike = any
-export type IndexKeySpec = any
-export type ReferentialAction = any
-export type TableOptionSpec = any
+export interface ColumnModel {
+  readonly name: string
+  readonly dataType?: string
+  readonly nullable?: boolean
+}
+
+export interface TableModel {
+  readonly name: string
+  readonly schemaName?: string
+  readonly columns: readonly ColumnModel[]
+}
+
+export interface EnumModel {
+  readonly name: string
+  readonly schemaName?: string
+  readonly values: readonly string[]
+}
+
+export interface SchemaModel {
+  readonly tables: readonly TableModel[]
+  readonly enums: readonly EnumModel[]
+}
+
+export type AnyDefinition = unknown
+export type EnumDefinition = unknown
+export type DdlExpressionLike = unknown
+export type IndexKeySpec = unknown
+export type ReferentialAction = "cascade" | "restrict" | "setNull" | "setDefault" | "noAction"
+export type TableOptionSpec = unknown
+
+export const EnumTypeId: unique symbol
+export const tableKey: (schemaName: string | undefined, tableName: string) => string
+export const enumKey: (schemaName: string | undefined, enumName: string) => string
+export const isTableDefinition: (value: unknown) => boolean
+export const isEnumDefinition: (value: unknown) => boolean
+export const fromDiscoveredValues: (values: readonly unknown[]) => SchemaModel
+export const toTableModel: (value: unknown) => TableModel
+export const toEnumModel: (value: unknown) => EnumModel
+export const normalizeDdlExpressionSql: (value: unknown) => string
+export const renderDdlExpressionSql: (value: unknown) => string
