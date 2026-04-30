@@ -30,8 +30,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "bun scripts/build.ts",
-    "prepack": "bun run build"
+    "build": "bun scripts/build.ts"
   },
   "dependencies": {
     "@effect/platform-bun": "4.0.0-beta.59",
