@@ -69,6 +69,7 @@ export namespace Query {
   export interface QueryPlan<Row = unknown> {
     readonly _tag: "QueryPlan"
     readonly __row?: Row
+    readonly pipe: (...operators: readonly PlanTransform[]) => QueryPlan<Row>
   }
 
   export type ResultRows<Plan> = Plan extends QueryPlan<infer Row> ? readonly Row[] : readonly unknown[]
