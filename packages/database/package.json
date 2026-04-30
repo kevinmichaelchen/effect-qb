@@ -17,11 +17,11 @@
   },
   "exports": {
     ".": {
-      "types": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
     "./cli": {
-      "types": "./src/cli.ts",
+      "types": "./dist/cli.d.ts",
       "import": "./dist/cli.js"
     },
     "./package.json": "./package.json"
